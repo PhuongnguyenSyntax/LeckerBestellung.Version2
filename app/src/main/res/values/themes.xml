@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.FoodOder" parent="Base.Theme.FoodOder" />
+
+    <!--Theme Dialog-->
+    <style name="ThemeDialog" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
 </resources>

@@ -19,13 +19,11 @@
             android:layout_marginEnd="@dimen/define_dimen_10"
             android:background="@color/white">
 
-            <EditText
+            <TextView
                 android:id="@+id/edtSearchName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_white_shape_border_red_corner_30"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
                 android:padding="@dimen/define_dimen_10"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="@dimen/text_size_xsmall"

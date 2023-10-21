@@ -11,4 +11,5 @@ class FoodRepository @Inject constructor(
 ) {
     fun getRanDomFood() = foodService.getRandomFood()
     fun getFoodCategory(country : String) = foodService.getFoodCategory(country)
+    fun searchFood(name : String) = foodService.searchFood(name)
 }

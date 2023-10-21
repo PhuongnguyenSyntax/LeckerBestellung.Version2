@@ -28,7 +28,7 @@ data class Meal(
 
 data class RanDomFood(
     @Json(name = "meals")
-    var meals: List<MealRanDom>
+    var meals: List<MealRanDom>? = null
 )
 
 data class MealRanDom(

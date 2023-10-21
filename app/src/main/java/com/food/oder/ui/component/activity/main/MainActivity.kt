@@ -1,4 +1,4 @@
-package com.food.oder.ui.component.activity
+package com.food.oder.ui.component.activity.main
 
 import androidx.viewpager2.widget.ViewPager2
 import com.food.oder.R

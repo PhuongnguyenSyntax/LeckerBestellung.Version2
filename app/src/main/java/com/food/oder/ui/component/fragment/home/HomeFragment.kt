@@ -1,5 +1,6 @@
 package com.food.oder.ui.component.fragment.home
 
+import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
@@ -17,7 +18,9 @@ import com.food.oder.ui.adapter.FoodChineseAdapter
 import com.food.oder.ui.adapter.FoodThaiAdapter
 import com.food.oder.ui.adapter.FoodVietNamAdapter
 import com.food.oder.ui.bases.BaseFragment
+import com.food.oder.ui.component.activity.search.SearchActivity
 import com.food.oder.ui.component.fragment.home.viewModel.HomeViewModel
+import com.food.oder.utils.tap
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Timer
 import java.util.TimerTask
@@ -97,7 +100,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 StateData.DataStatus.SUCCESS -> {
                     it.getData().let { food ->
                         if (food != null)
-                            listImageRanDomFood.add(food.meals[0].strMealThumb.toString())
+                            listImageRanDomFood.add(food.meals?.get(0)?.strMealThumb.toString())
                         Log.e("TAG", "observerData1: ${listImageRanDomFood.size}")
                     }
                 }
@@ -118,7 +121,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 StateData.DataStatus.SUCCESS -> {
                     it.getData().let { food ->
                         if (food != null)
-                            listImageRanDomFood.add(food.meals[0].strMealThumb.toString())
+                            listImageRanDomFood.add(food.meals?.get(0)?.strMealThumb.toString())
                         Log.e("TAG", "observerData2: ${listImageRanDomFood.size}")
                     }
                 }
@@ -139,7 +142,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 StateData.DataStatus.SUCCESS -> {
                     it.getData().let { food ->
                         if (food != null) {
-                            listImageRanDomFood.add(food.meals[0].strMealThumb.toString())
+                            listImageRanDomFood.add(food.meals?.get(0)?.strMealThumb.toString())
                             Log.e("TAG", "observerData3: ${listImageRanDomFood.size}")
                             adapterAd?.submitData(listImageRanDomFood)
                             Log.e("TAG", "observerData3: ${adapterAd?.itemCount}")
@@ -237,6 +240,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 else -> {
                 }
             }
+        }
+    }
+
+    override fun onClickViews() {
+        super.onClickViews()
+
+        mBinding.layoutSearch.tap{
+            startActivity(Intent(requireActivity(), SearchActivity::class.java))
         }
     }
 }

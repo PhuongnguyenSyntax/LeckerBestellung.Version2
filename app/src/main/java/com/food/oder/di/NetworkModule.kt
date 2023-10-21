@@ -1,7 +1,11 @@
 package com.food.oder.di
 
 import com.food.oder.BuildConfig
+import com.food.oder.data.flow.FlowCallAdapterFactory
 import com.food.oder.data.network.FoodDetailsService
+import com.food.oder.data.network.FoodService
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,14 +37,21 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create())
-        .baseUrl("https://api.github.com/")
+        .addConverterFactory(
+            MoshiConverterFactory.create(
+                Moshi.Builder()
+                    .add(KotlinJsonAdapterFactory())
+                    .build()
+            )
+        )
+        .addCallAdapterFactory(FlowCallAdapterFactory.create())
+        .baseUrl(BuildConfig.BASE_URL)
         .client(okHttpClient)
         .build()
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): FoodDetailsService =
-        retrofit.create(FoodDetailsService::class.java)
+    fun provideApiService(retrofit: Retrofit): FoodService =
+        retrofit.create(FoodService::class.java)
 
 }

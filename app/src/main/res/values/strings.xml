@@ -84,4 +84,8 @@
 
     <string name="msg_get_date_error">Lỗi đã xảy ra, vui lòng thử lại sau</string>
     <string name="msg_order_success">Đặt hàng thành công, vui lòng check đơn hàng trong phần Lịch sử</string>
+    <string name="american">American</string>
+    <string name="chinese">Chinese</string>
+    <string name="thai">Thai</string>
+    <string name="vietnamese">Vietnamese</string>
 </resources>

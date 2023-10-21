@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:id="@+id/layout_item"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-      >
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/define_dimen_20">
 
         <com.food.oder.widget.AspectRatioNoRadiusImageView
             android:id="@+id/image_food"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            app:aspectRatio="0.56"
             app:aspectRatioEnabled="true"
-            app:dominantMeasurement="Width" />
+            app:dominantMeasurement="Width"
+            android:layout_marginBottom="10dp"/>
 
         <TextView
-            android:id="@+id/tvSaleOff"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="@dimen/define_dimen_10"
-            android:background="@color/colorPrimary"
-            android:padding="@dimen/define_dimen_6"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_xsmall"
-            android:textStyle="bold"
-            tools:ignore="RelativeOverlap" />
+            android:text="@string/app_name"
+            android:gravity="center"
+            android:layout_below="@id/image_food"/>
+
     </RelativeLayout>
 </layout>

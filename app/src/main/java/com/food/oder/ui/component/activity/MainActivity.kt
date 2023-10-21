@@ -9,7 +9,7 @@ import com.food.oder.ui.component.fragment.CartFragment
 import com.food.oder.ui.component.fragment.ContactFragment
 import com.food.oder.ui.component.fragment.FeedBackFragment
 import com.food.oder.ui.component.fragment.HistoryFragment
-import com.food.oder.ui.component.fragment.HomeFragment
+import com.food.oder.ui.component.fragment.home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

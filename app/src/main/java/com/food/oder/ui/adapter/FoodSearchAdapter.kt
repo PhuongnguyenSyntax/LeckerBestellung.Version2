@@ -9,9 +9,13 @@ import com.food.oder.databinding.ItemAdSlideBinding
 import com.food.oder.databinding.ItemFoodPopularBinding
 import com.food.oder.ui.bases.BaseRecyclerView
 import com.food.oder.utils.loadImage
+import com.food.oder.utils.tap
 
 class FoodSearchAdapter(
-) :  BaseRecyclerView<MealRanDom>() {
+) : BaseRecyclerView<MealRanDom>() {
+
+    var onClickItem: ((id: String) -> Unit)? = null
+
 
     override fun getItemLayout() = R.layout.item_food_popular
 
@@ -34,5 +38,12 @@ class FoodSearchAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return position
+    }
+
+    override fun onClickViews(binding: ViewDataBinding, obj: MealRanDom, layoutPosition: Int) {
+        super.onClickViews(binding, obj, layoutPosition)
+        binding.root.tap {
+            obj.idMeal?.let { it1 -> onClickItem?.invoke(it1) }
+        }
     }
 }

@@ -19,4 +19,9 @@ interface FoodService {
     fun searchFood(
         @Query("s") name : String
     ) : Flow<RanDomFood>
+
+    @GET("/api/json/v1/1/lookup.php?")
+    fun getFoodDetails(
+        @Query("i") id : String
+    ) : Flow<RanDomFood>
 }

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/rl_toolbar" />
+
+            <ProgressBar
+                android:id="@+id/pressed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+            <ImageView
+                android:id="@+id/imv_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/define_dimen_20"
+                android:textSize="@dimen/define_dimen_20"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/imv_food" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/define_dimen_20"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/define_dimen_14"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintTop_toBottomOf="@id/tv_price" />
+
+            <TextView
+                android:id="@+id/tv_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/define_dimen_20"
+                app:layout_constraintTop_toBottomOf="@id/line" />
+
+            <TextView
+                android:id="@+id/btn_add_to_cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/define_dimen_30"
+                android:layout_marginTop="@dimen/define_dimen_20"
+                android:background="@drawable/bg_add_to_cart"
+                android:paddingVertical="@dimen/define_dimen_10"
+                android:text="@string/add_to_cart"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/define_dimen_20"
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/define_dimen_40"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tv_details" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_control"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/define_dimen_10"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/define_dimen_40"
+                app:layout_constraintTop_toBottomOf="@id/btn_add_to_cart"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageView
+                    android:id="@+id/imv_food_add_cart"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_food_name_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/define_dimen_10"
+                    android:text="@string/add_to_cart"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/imv_food_add_cart"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_price_add_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/define_dimen_10"
+                    android:text="@string/add_to_cart"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintStart_toEndOf="@id/imv_food_add_cart"
+                    app:layout_constraintTop_toBottomOf="@id/tv_food_name_cart" />
+
+                <ImageView
+                    android:id="@+id/btn_minus"
+                    android:layout_width="@dimen/define_dimen_20"
+                    android:layout_height="@dimen/define_dimen_20"
+                    android:layout_marginTop="@dimen/define_dimen_10"
+                    android:padding="@dimen/define_dimen_5"
+                    android:src="@drawable/minus"
+                    app:layout_constraintStart_toStartOf="@id/tv_price_add_cart"
+                    app:layout_constraintTop_toBottomOf="@id/tv_price_add_cart" />
+
+                <TextView
+                    android:id="@+id/tv_amout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/define_dimen_10"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textSize="@dimen/define_dimen_18"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/btn_plus"
+                    app:layout_constraintStart_toEndOf="@id/btn_minus"
+                    app:layout_constraintTop_toBottomOf="@id/tv_price_add_cart" />
+
+                <ImageView
+                    android:id="@+id/btn_plus"
+                    android:layout_width="@dimen/define_dimen_20"
+                    android:layout_height="@dimen/define_dimen_20"
+                    android:layout_marginStart="@dimen/define_dimen_10"
+                    android:layout_marginTop="@dimen/define_dimen_10"
+                    android:padding="@dimen/define_dimen_5"
+                    android:src="@drawable/add"
+                    app:layout_constraintStart_toEndOf="@id/tv_amout"
+                    app:layout_constraintTop_toBottomOf="@id/tv_price_add_cart" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/define_dimen_10"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imv_food_add_cart">
+
+                    <TextView
+                        android:id="@+id/tv_cancel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/define_dimen_10"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_gray_shape_corner_6"
+                        android:gravity="center"
+                        android:padding="@dimen/define_dimen_10"
+                        android:text="@string/cancel"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_add"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/define_dimen_10"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_add_to_cart"
+                        android:gravity="center"
+                        android:padding="@dimen/define_dimen_10"
+                        android:text="@string/add_to_cart"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

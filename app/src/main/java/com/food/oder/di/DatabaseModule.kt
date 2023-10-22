@@ -2,7 +2,7 @@ package com.food.oder.di
 
 import android.content.Context
 import androidx.room.Room
-import com.food.oder.data.database.FoodDao
+import com.food.oder.data.database.CartDao
 import com.food.oder.data.database.FoodDataBase
 import dagger.Module
 import dagger.Provides
@@ -25,7 +25,7 @@ object DatabaseModule {
     }
 
     @Provides
-    fun provideChannelDao(foodDataBase: FoodDataBase): FoodDao {
-        return foodDataBase.foodDao
+    fun provideChannelDao(foodDataBase: FoodDataBase): CartDao {
+        return foodDataBase.cartDao
     }
 }

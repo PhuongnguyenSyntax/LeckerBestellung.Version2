@@ -5,4 +5,5 @@ object AppConstants {
     const val CHINESE = "Chinese"
     const val THAI = "Thai"
     const val VIETNAMESE = "Vietnamese"
+    const val ID_FOOD = "id_food"
 }

@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import com.food.oder.R
 import com.food.oder.app.AppConstants.AMERICAN
 import com.food.oder.app.AppConstants.CHINESE
+import com.food.oder.app.AppConstants.ID_FOOD
 import com.food.oder.app.AppConstants.THAI
 import com.food.oder.app.AppConstants.VIETNAMESE
 import com.food.oder.data.liveData.StateData
@@ -18,6 +19,7 @@ import com.food.oder.ui.adapter.FoodChineseAdapter
 import com.food.oder.ui.adapter.FoodThaiAdapter
 import com.food.oder.ui.adapter.FoodVietNamAdapter
 import com.food.oder.ui.bases.BaseFragment
+import com.food.oder.ui.component.activity.details.DetailsActivity
 import com.food.oder.ui.component.activity.search.SearchActivity
 import com.food.oder.ui.component.fragment.home.viewModel.HomeViewModel
 import com.food.oder.utils.tap
@@ -68,25 +70,31 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         startAutoSlide()
     }
 
+    override fun onPause() {
+        super.onPause()
+        timer?.cancel()
+        timer = null
+    }
+
     private fun startAutoSlide() {
         // init Timer
         if (timer == null) {
             timer = Timer()
-        }
-        timer!!.schedule(object : TimerTask() {
-            override fun run() {
-                Handler(Looper.getMainLooper()).post {
-                    var currencyAd: Int = mBinding.viewpager2.currentItem
-                    val positionAd: Int = listImageRanDomFood.size - 1
-                    if (currencyAd < positionAd) {
-                        currencyAd++
-                        mBinding.viewpager2.currentItem = currencyAd
-                    } else {
-                        mBinding.viewpager2.currentItem = 0
+            timer!!.schedule(object : TimerTask() {
+                override fun run() {
+                    Handler(Looper.getMainLooper()).post {
+                        var currencyAd: Int = mBinding.viewpager2.currentItem
+                        val positionAd: Int = listImageRanDomFood.size - 1
+                        if (currencyAd < positionAd) {
+                            currencyAd++
+                            mBinding.viewpager2.currentItem = currencyAd
+                        } else {
+                            mBinding.viewpager2.currentItem = 0
+                        }
                     }
                 }
-            }
-        }, 500, 3000)
+            }, 1000, 3000)
+        }
     }
 
     override fun observerData() {
@@ -246,8 +254,44 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun onClickViews() {
         super.onClickViews()
 
-        mBinding.layoutSearch.tap{
+        mBinding.layoutSearch.tap {
             startActivity(Intent(requireActivity(), SearchActivity::class.java))
+        }
+
+        foodAmericarAdapter?.onClickItem = {
+            startActivity(
+                Intent(requireActivity(), DetailsActivity::class.java).putExtra(
+                    ID_FOOD,
+                    it
+                )
+            )
+        }
+
+        foodChineseAdapter?.onClickItem = {
+            startActivity(
+                Intent(requireActivity(), DetailsActivity::class.java).putExtra(
+                    ID_FOOD,
+                    it
+                )
+            )
+        }
+
+        foodThaiAdapter?.onClickItem = {
+            startActivity(
+                Intent(requireActivity(), DetailsActivity::class.java).putExtra(
+                    ID_FOOD,
+                    it
+                )
+            )
+        }
+
+        foodVietNamAdapter?.onClickItem = {
+            startActivity(
+                Intent(requireActivity(), DetailsActivity::class.java).putExtra(
+                    ID_FOOD,
+                    it
+                )
+            )
         }
     }
 }

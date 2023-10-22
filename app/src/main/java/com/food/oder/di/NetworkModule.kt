@@ -2,7 +2,6 @@ package com.food.oder.di
 
 import com.food.oder.BuildConfig
 import com.food.oder.data.flow.FlowCallAdapterFactory
-import com.food.oder.data.network.FoodDetailsService
 import com.food.oder.data.network.FoodService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

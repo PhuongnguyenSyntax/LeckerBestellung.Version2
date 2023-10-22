@@ -7,9 +7,12 @@ import com.food.oder.databinding.ItemAdSlideBinding
 import com.food.oder.databinding.ItemFoodPopularBinding
 import com.food.oder.ui.bases.BaseRecyclerView
 import com.food.oder.utils.loadImage
+import com.food.oder.utils.tap
 
 class FoodVietNamAdapter(
 ) :  BaseRecyclerView<MealCategory>() {
+
+    var onClickItem: ((id: String) -> Unit)? = null
 
     override fun getItemLayout() = R.layout.item_food_popular
 
@@ -32,5 +35,13 @@ class FoodVietNamAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return position
+    }
+
+    override fun onClickViews(binding: ViewDataBinding, obj: MealCategory, layoutPosition: Int) {
+        super.onClickViews(binding, obj, layoutPosition)
+
+        binding.root.tap {
+            onClickItem?.invoke(obj.idMeal)
+        }
     }
 }

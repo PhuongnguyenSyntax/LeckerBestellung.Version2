@@ -1,10 +1,11 @@
 package com.food.oder.data.model
 
 data class CartOrder(
-    val fullName : String,
-    val numberPhone: String,
-    val address : String,
-    var menu : ArrayList<String>,
-    var date : String,
-    var totalAmount : Int
+    var id: String? = "",
+    val fullName: String? = "",
+    val numberPhone: String? = "",
+    val address: String? = "",
+    var menu: ArrayList<String>? = null,
+    var date: String? = "",
+    var totalAmount: Int? = 0
 )

@@ -114,7 +114,7 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
                 getString(R.string.please_wait),
                 Toast.LENGTH_SHORT
             ).show()
-            val myRef = database.getReference("cart")
+            val myRef = database.getReference("cart").push()
             myRef.setValue(this.listDataCart).addOnSuccessListener {
                 cartViewModel.deleteAllDataCart()
                 Toast.makeText(

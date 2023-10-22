@@ -52,7 +52,7 @@
     <string name="label_price_0">0 VNĐ</string>
     <string name="label_discount">Discount</string>
 
-    <string name="feedback_name">discount</string>
+    <string name="feedback_name">Name</string>
     <string name="feedback_email">Email</string>
     <string name="feedback_phone">Number Phone</string>
     <string name="feedback_comment">Feedback (*)</string>

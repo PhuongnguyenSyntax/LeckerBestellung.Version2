@@ -5,7 +5,7 @@ import com.food.oder.R
 import com.food.oder.databinding.ActivityMainBinding
 import com.food.oder.ui.adapter.ViewPagerMainAdapter
 import com.food.oder.ui.bases.BaseActivity
-import com.food.oder.ui.component.fragment.CartFragment
+import com.food.oder.ui.component.fragment.cart.CartFragment
 import com.food.oder.ui.component.fragment.ContactFragment
 import com.food.oder.ui.component.fragment.FeedBackFragment
 import com.food.oder.ui.component.fragment.HistoryFragment

@@ -17,11 +17,14 @@ interface CartDao {
     @Query("delete from Table_cart where id =:id")
     fun deleteData(id : Int)
 
+    @Query("delete from Table_cart")
+    fun deleteAllData()
+
     @Query("select * from Table_cart")
     fun getAllIData(): Flow<List<Cart>?>
 
     @Query("select * from Table_cart where price =:price")
-    fun getDataWithPrice(price : String): Flow<List<Cart>?>
+    fun getDataWithPrice(price : String): Flow<Cart>
 }
 
 @Database(entities = [Cart::class], version = 1, exportSchema = false)

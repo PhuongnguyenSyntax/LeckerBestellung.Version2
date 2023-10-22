@@ -1,6 +1,7 @@
 package com.food.oder.ui.component.activity.details
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -97,6 +98,8 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
                 )
             )
 
+            mBinding.layoutControl.visibility = View.GONE
+
             Toast.makeText(this, getString(R.string.add_cart_success), Toast.LENGTH_SHORT).show()
         }
     }
@@ -157,7 +160,13 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
 
                 StateData.DataStatus.SUCCESS -> {
                     it.getData().let { food ->
+                        Log.e("TAG", "observerData: $food", )
                         isAddCart = food != null
+                        if (isAddCart) {
+                            mBinding.btnAddToCart.background = getDrawable(R.drawable.bg_gray_shape_corner_6)
+                        } else {
+                            mBinding.btnAddToCart.background = getDrawable(R.drawable.bg_add_to_cart)
+                        }
                     }
                 }
 

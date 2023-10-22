@@ -92,4 +92,6 @@
     <string name="tile_details">Details food</string>
     <string name="text_loading">Loading</string>
     <string name="add_cart_success">Add to cart success</string>
+    <string name="empty_cart">Empty cart !!</string>
+    <string name="please_wait">Please wait...</string>
 </resources>

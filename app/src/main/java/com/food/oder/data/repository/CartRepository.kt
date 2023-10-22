@@ -11,4 +11,5 @@ class CartRepository@Inject constructor(
     fun getInsertOrUpdateData(cart : Cart) = dataBase.cartDao.insertOrUpdateData(cart)
     fun deleteData(id : Int) = dataBase.cartDao.deleteData(id)
     fun getDataWithPrice(price : String) = dataBase.cartDao.getDataWithPrice(price)
+    fun deleteAllData() = dataBase.cartDao.deleteAllData()
 }

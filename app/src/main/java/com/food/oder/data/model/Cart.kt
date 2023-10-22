@@ -10,5 +10,5 @@ data class Cart(
     val urlImage : String,
     val name: String,
     val price : String,
-    val amount : Int
+    var amount : Int
 )

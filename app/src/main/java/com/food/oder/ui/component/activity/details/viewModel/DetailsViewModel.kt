@@ -36,7 +36,7 @@ class DetailsViewModel @Inject constructor(
     fun getDataWithPrice(price : String){
         dataWithPrice.postLoading()
         bgScope.launch {
-            cartRepository.getDataWithPrice(price)
+            cartRepository.getDataWithPrice(price).collectAsSateLiveData(dataWithPrice)
         }
     }
 }

@@ -120,39 +120,46 @@
                     app:layout_constraintStart_toEndOf="@id/imv_food_add_cart"
                     app:layout_constraintTop_toBottomOf="@id/tv_food_name_cart" />
 
-                <ImageView
-                    android:id="@+id/btn_minus"
-                    android:layout_width="@dimen/define_dimen_20"
-                    android:layout_height="@dimen/define_dimen_20"
-                    android:layout_marginTop="@dimen/define_dimen_10"
-                    android:padding="@dimen/define_dimen_5"
-                    android:src="@drawable/minus"
-                    app:layout_constraintStart_toStartOf="@id/tv_price_add_cart"
-                    app:layout_constraintTop_toBottomOf="@id/tv_price_add_cart" />
-
-                <TextView
-                    android:id="@+id/tv_amout"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/define_dimen_10"
-                    android:gravity="center"
-                    android:text="1"
-                    android:textSize="@dimen/define_dimen_18"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@id/btn_plus"
-                    app:layout_constraintStart_toEndOf="@id/btn_minus"
-                    app:layout_constraintTop_toBottomOf="@id/tv_price_add_cart" />
+                    android:layout_marginTop="@dimen/define_dimen_5"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@id/tv_price_add_cart"
+                    app:layout_constraintTop_toBottomOf="@id/tv_price_add_cart">
 
-                <ImageView
-                    android:id="@+id/btn_plus"
-                    android:layout_width="@dimen/define_dimen_20"
-                    android:layout_height="@dimen/define_dimen_20"
-                    android:layout_marginStart="@dimen/define_dimen_10"
-                    android:layout_marginTop="@dimen/define_dimen_10"
-                    android:padding="@dimen/define_dimen_5"
-                    android:src="@drawable/add"
-                    app:layout_constraintStart_toEndOf="@id/tv_amout"
-                    app:layout_constraintTop_toBottomOf="@id/tv_price_add_cart" />
+                    <TextView
+                        android:id="@+id/btn_minus"
+                        android:layout_width="@dimen/define_dimen_30"
+                        android:layout_height="@dimen/define_dimen_30"
+                        android:background="@drawable/bg_white_shape_border_gray"
+                        android:gravity="center"
+                        android:text="@string/label_sub"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <TextView
+                        android:id="@+id/tv_amout"
+                        android:layout_width="@dimen/define_dimen_30"
+                        android:layout_height="@dimen/define_dimen_30"
+                        android:layout_marginStart="@dimen/define_dimen_10"
+                        android:layout_marginEnd="@dimen/define_dimen_10"
+                        android:background="@drawable/bg_white_shape_border_red_corner_3"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <TextView
+                        android:id="@+id/btn_plus"
+                        android:layout_width="@dimen/define_dimen_30"
+                        android:layout_height="@dimen/define_dimen_30"
+                        android:background="@drawable/bg_white_shape_border_gray"
+                        android:gravity="center"
+                        android:text="@string/label_add"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/text_size_normal" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

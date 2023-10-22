@@ -1,13 +1,16 @@
 package com.food.oder.ui.component.activity.search
 
+import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.food.oder.R
+import com.food.oder.app.AppConstants
 import com.food.oder.data.liveData.StateData
 import com.food.oder.databinding.ActivitySearchBinding
 import com.food.oder.ui.adapter.FoodSearchAdapter
 import com.food.oder.ui.bases.BaseActivity
+import com.food.oder.ui.component.activity.details.DetailsActivity
 import com.food.oder.ui.component.activity.search.viewModel.SearchViewModel
 import com.food.oder.utils.tap
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,6 +48,15 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
 
         mBinding.toolbar.imvBack.tap {
             finish()
+        }
+
+        foodSearchAdapter?.onClickItem = {
+            startActivity(
+                Intent(this, DetailsActivity::class.java).putExtra(
+                    AppConstants.ID_FOOD,
+                    it
+                )
+            )
         }
     }
 

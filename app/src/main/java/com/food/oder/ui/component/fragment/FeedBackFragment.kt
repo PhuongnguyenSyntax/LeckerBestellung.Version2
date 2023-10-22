@@ -1,5 +1,6 @@
 package com.food.oder.ui.component.fragment
 
+import android.view.View
 import android.widget.Toast
 import com.food.oder.R
 import com.food.oder.data.model.FeedBack
@@ -17,6 +18,13 @@ class FeedBackFragment : BaseFragment<FragmentFeedbackBinding>() {
     private val database = Firebase.database
 
     override fun getLayoutFragment() = R.layout.fragment_feedback
+
+    override fun initViews() {
+        super.initViews()
+
+        mBinding.toolbar.imvBack.visibility = View.GONE
+        mBinding.toolbar.tvTitle.text = getString(R.string.feedback)
+    }
 
     override fun onClickViews() {
         super.onClickViews()

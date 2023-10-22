@@ -81,6 +81,7 @@
     <string name="label_skype">Skype</string>
     <string name="label_youtube">Youtube</string>
     <string name="label_zalo">Zalo</string>
+    <string name="label_whatsapp">Whatsapp</string>
 
     <string name="msg_get_date_error">An error has occurred, please try again later</string>
     <string name="msg_order_success">Order successfully, please check your order in the History section</string>

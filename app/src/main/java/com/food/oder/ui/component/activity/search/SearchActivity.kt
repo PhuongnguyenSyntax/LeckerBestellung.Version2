@@ -27,6 +27,8 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
         foodSearchAdapter = FoodSearchAdapter()
 
         mBinding.rcvSearch.adapter = foodSearchAdapter
+
+        mBinding.toolbar.tvTitle.text = getString(R.string.search)
     }
 
     override fun onClickViews() {
@@ -39,6 +41,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>() {
                 Toast.makeText(this, "Please enter the name of the dish to search for", Toast.LENGTH_LONG)
                     .show()
             }
+        }
+
+        mBinding.toolbar.imvBack.tap {
+            finish()
         }
     }
 

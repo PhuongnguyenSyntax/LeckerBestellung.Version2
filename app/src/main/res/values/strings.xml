@@ -95,4 +95,6 @@
     <string name="add_cart_success">Add to cart success</string>
     <string name="empty_cart">Empty cart !!</string>
     <string name="please_wait">Please wait...</string>
+    <string name="value_not_emty">Please make sure the fields are not blank\n</string>
+    <string name="search">Search</string>
 </resources>

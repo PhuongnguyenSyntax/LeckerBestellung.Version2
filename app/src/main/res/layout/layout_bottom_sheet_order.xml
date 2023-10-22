@@ -2,7 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-     <LinearLayout
+    <LinearLayout
+        android:id="@+id/container_behavior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -44,22 +45,22 @@
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_small" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_16"
-            android:text="@string/payment_method"
-            android:textSize="@dimen/text_size_small" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/define_dimen_16"-->
+<!--            android:text="@string/payment_method"-->
+<!--            android:textSize="@dimen/text_size_small" />-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/define_dimen_5"
-            android:background="@drawable/bg_white_shape_border_gray"
-            android:padding="@dimen/define_dimen_12"
-            android:text="@string/payment_method_cash"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_size_small" />
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/define_dimen_5"-->
+<!--            android:background="@drawable/bg_white_shape_border_gray"-->
+<!--            android:padding="@dimen/define_dimen_12"-->
+<!--            android:text="@string/payment_method_cash"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="@dimen/text_size_small" />-->
 
         <TextView
             android:layout_width="wrap_content"

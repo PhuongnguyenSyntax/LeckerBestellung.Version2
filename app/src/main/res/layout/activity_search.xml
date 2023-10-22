@@ -10,6 +10,10 @@
         android:background="@color/white"
         android:orientation="vertical">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/rl_toolbar"/>
+
         <RelativeLayout
             android:id="@+id/layout_search"
             android:layout_width="match_parent"
@@ -18,7 +22,7 @@
             android:layout_marginTop="@dimen/define_dimen_20"
             android:layout_marginEnd="@dimen/define_dimen_10"
             android:background="@color/white"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
 
             <EditText
                 android:id="@+id/edtSearchName"

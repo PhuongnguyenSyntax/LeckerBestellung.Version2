@@ -61,6 +61,8 @@ class FeedBackFragment : BaseFragment<FragmentFeedbackBinding>() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+            }else{
+                Toast.makeText(requireContext(), getString(R.string.value_not_emty), Toast.LENGTH_SHORT).show()
             }
         }
     }

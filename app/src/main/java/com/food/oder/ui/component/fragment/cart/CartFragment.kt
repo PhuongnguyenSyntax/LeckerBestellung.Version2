@@ -1,30 +1,24 @@
 package com.food.oder.ui.component.fragment.cart
 
+import android.content.Intent
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.food.oder.R
+import com.food.oder.app.AppConstants.LIST_NAME_DATACART
+import com.food.oder.app.AppConstants.TOTAL_AMOUNT
 import com.food.oder.data.liveData.StateData
 import com.food.oder.data.model.Cart
 import com.food.oder.databinding.FragmentCartBinding
 import com.food.oder.ui.adapter.CartAdapter
 import com.food.oder.ui.bases.BaseFragment
+import com.food.oder.ui.component.activity.BottomSheetOrderCartActivity
 import com.food.oder.ui.component.dialog.DeleteDialog
 import com.food.oder.ui.component.fragment.cart.viewModel.CartViewModel
-import com.food.oder.utils.LoadingDialog
 import com.food.oder.utils.tap
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
-import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CartFragment : BaseFragment<FragmentCartBinding>() {
-    private val database = Firebase.database
-
     private val cartViewModel: CartViewModel by viewModels()
 
     private var cartAdapter: CartAdapter? = null
@@ -32,6 +26,8 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
     private var totalAmount = 0
 
     private var listDataCart: List<Cart>? = null
+
+    private var listNameDataCart = arrayListOf<String>()
 
     override fun getLayoutFragment() = R.layout.fragment_cart
 
@@ -67,6 +63,7 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
                                 mBinding.tvNoItem.visibility = View.GONE
 
                                 for (i in 0..listDataCart.lastIndex) {
+                                    listNameDataCart.add(listDataCart[i].name)
                                     totalAmount += (listDataCart[i].amount * listDataCart[i].price.toInt())
                                 }
 
@@ -109,26 +106,10 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
         }
 
         mBinding.tvOrderCart.tap {
-            Toast.makeText(
-                requireContext(),
-                getString(R.string.please_wait),
-                Toast.LENGTH_SHORT
-            ).show()
-            val myRef = database.getReference("cart").push()
-            myRef.setValue(this.listDataCart).addOnSuccessListener {
-                cartViewModel.deleteAllDataCart()
-                Toast.makeText(
-                    requireContext(),
-                    getString(R.string.msg_order_success),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }.addOnFailureListener {
-                Toast.makeText(
-                    requireContext(),
-                    getString(R.string.error_not_connect_to_internet),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            startActivity(Intent(requireContext(), BottomSheetOrderCartActivity::class.java).apply {
+                putExtra(TOTAL_AMOUNT, totalAmount)
+                putExtra(LIST_NAME_DATACART, listNameDataCart)
+            })
         }
     }
 }

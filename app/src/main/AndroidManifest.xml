@@ -34,6 +34,10 @@
             android:name=".ui.component.activity.details.DetailsActivity"
             android:exported="true"/>
 
+        <activity
+            android:name=".ui.component.activity.BottomSheetOrderCartActivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>

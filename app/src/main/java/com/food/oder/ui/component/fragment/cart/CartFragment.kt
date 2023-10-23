@@ -1,6 +1,7 @@
 package com.food.oder.ui.component.fragment.cart
 
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.food.oder.R
@@ -14,6 +15,7 @@ import com.food.oder.ui.bases.BaseFragment
 import com.food.oder.ui.component.activity.BottomSheetOrderCartActivity
 import com.food.oder.ui.component.dialog.DeleteDialog
 import com.food.oder.ui.component.fragment.cart.viewModel.CartViewModel
+import com.food.oder.utils.convertPrice
 import com.food.oder.utils.tap
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -62,12 +64,14 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
                                 mBinding.layoutBottom.visibility = View.VISIBLE
                                 mBinding.tvNoItem.visibility = View.GONE
 
+                                totalAmount = 0
+
                                 for (i in 0..listDataCart.lastIndex) {
                                     listNameDataCart.add(listDataCart[i].name)
                                     totalAmount += (listDataCart[i].amount * listDataCart[i].price.toInt())
                                 }
 
-                                mBinding.tvTotalPrice.text = totalAmount.toString()
+                                mBinding.tvTotalPrice.text = "${convertPrice( totalAmount.toString())} $"
                             } else {
                                 mBinding.rcvFoodCart.visibility = View.GONE
                                 mBinding.layoutBottom.visibility = View.GONE

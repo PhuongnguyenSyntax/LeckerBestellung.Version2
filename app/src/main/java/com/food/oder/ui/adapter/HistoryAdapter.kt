@@ -7,6 +7,7 @@ import com.food.oder.data.model.CartOrder
 import com.food.oder.databinding.ItemCartBinding
 import com.food.oder.databinding.ItemOrderBinding
 import com.food.oder.ui.bases.BaseRecyclerView
+import com.food.oder.utils.convertPrice
 import com.food.oder.utils.loadImage
 import com.food.oder.utils.tap
 
@@ -28,7 +29,7 @@ class HistoryAdapter(
             binding.tvDate.text = item.date
             binding.tvName.text = item.fullName
             binding.tvPhone.text = item.numberPhone
-            binding.tvTotalAmount.text = item.totalAmount.toString()
+            binding.tvTotalAmount.text = "${convertPrice(item.totalAmount.toString())} $"
             binding.tvMenu.text = item.menu.toString().replace("[", "").replace("]", "")
         }
     }

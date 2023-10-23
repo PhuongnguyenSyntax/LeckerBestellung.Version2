@@ -7,6 +7,7 @@ import com.food.oder.data.model.MealCategory
 import com.food.oder.databinding.ItemAdSlideBinding
 import com.food.oder.databinding.ItemFoodPopularBinding
 import com.food.oder.ui.bases.BaseRecyclerView
+import com.food.oder.utils.convertPrice
 import com.food.oder.utils.loadImage
 import com.food.oder.utils.tap
 
@@ -27,7 +28,7 @@ class FoodAmericarAdapter(
         if (binding is ItemFoodPopularBinding) {
             loadImage(binding.imageFood, item.strMealThumb)
             binding.tvTitle.text = item.strMeal
-            binding.tvTitle.text = "${item.idMeal} $"
+            binding.tvPrice.text = "${convertPrice(item.idMeal)} $"
         }
     }
 

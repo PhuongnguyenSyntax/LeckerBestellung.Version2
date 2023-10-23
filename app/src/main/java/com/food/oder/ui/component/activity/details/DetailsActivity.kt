@@ -12,6 +12,7 @@ import com.food.oder.data.model.Cart
 import com.food.oder.databinding.ActivityDetailsBinding
 import com.food.oder.ui.bases.BaseActivity
 import com.food.oder.ui.component.activity.details.viewModel.DetailsViewModel
+import com.food.oder.utils.convertPrice
 import com.food.oder.utils.loadImage
 import com.food.oder.utils.tap
 import dagger.hilt.android.AndroidEntryPoint
@@ -124,7 +125,7 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
                                     mBinding.imvFood, this.strMealThumb
                                 )
                                 mBinding.tvName.text = this.strMeal
-                                mBinding.tvPrice.text = this.idMeal
+                                mBinding.tvPrice.text = "${convertPrice(this.idMeal.toString())} $"
                                 mBinding.tvDetails.text = this.strInstructions
 
                                 loadImage(
@@ -132,7 +133,7 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
                                 )
 
                                 mBinding.tvFoodNameCart.text = this.strMeal
-                                mBinding.tvPriceAddCart.text = "${this.idMeal} $"
+                                mBinding.tvPriceAddCart.text = "${convertPrice(this.idMeal.toString())} $"
 
                                 urlImage = this.strMealThumb.toString()
                                 nameFood = this.strMeal.toString()

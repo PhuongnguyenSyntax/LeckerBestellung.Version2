@@ -5,6 +5,7 @@ import com.food.oder.R
 import com.food.oder.data.model.Cart
 import com.food.oder.databinding.ItemCartBinding
 import com.food.oder.ui.bases.BaseRecyclerView
+import com.food.oder.utils.convertPrice
 import com.food.oder.utils.loadImage
 import com.food.oder.utils.tap
 
@@ -25,7 +26,7 @@ class CartAdapter(
         if (binding is ItemCartBinding) {
             loadImage(binding.imgFoodCart, item.urlImage)
             binding.tvFoodNameCart.text = item.name
-            binding.tvFoodPriceCart.text = item.price
+            binding.tvFoodPriceCart.text = "${convertPrice(item.price)} $"
             binding.tvCount.text = item.amount.toString()
 
             binding.tvDelete.tap {

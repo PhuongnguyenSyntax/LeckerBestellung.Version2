@@ -27,6 +27,7 @@ class FoodAmericarAdapter(
         if (binding is ItemFoodPopularBinding) {
             loadImage(binding.imageFood, item.strMealThumb)
             binding.tvTitle.text = item.strMeal
+            binding.tvTitle.text = "${item.idMeal} $"
         }
     }
 

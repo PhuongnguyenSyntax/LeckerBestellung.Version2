@@ -132,7 +132,7 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
                                 )
 
                                 mBinding.tvFoodNameCart.text = this.strMeal
-                                mBinding.tvPriceAddCart.text = this.idMeal
+                                mBinding.tvPriceAddCart.text = "${this.idMeal} $"
 
                                 urlImage = this.strMealThumb.toString()
                                 nameFood = this.strMeal.toString()

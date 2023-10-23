@@ -54,6 +54,7 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
 
                 StateData.DataStatus.SUCCESS -> {
                     it.getData().let { listDataCart ->
+                        listNameDataCart.clear()
                         if (listDataCart != null) {
 
                             this.listDataCart = listDataCart
@@ -71,7 +72,8 @@ class CartFragment : BaseFragment<FragmentCartBinding>() {
                                     totalAmount += (listDataCart[i].amount * listDataCart[i].price.toInt())
                                 }
 
-                                mBinding.tvTotalPrice.text = "${convertPrice( totalAmount.toString())} $"
+                                mBinding.tvTotalPrice.text =
+                                    "${convertPrice(totalAmount.toString())} $"
                             } else {
                                 mBinding.rcvFoodCart.visibility = View.GONE
                                 mBinding.layoutBottom.visibility = View.GONE

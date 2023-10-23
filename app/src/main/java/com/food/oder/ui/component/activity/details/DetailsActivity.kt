@@ -9,9 +9,11 @@ import com.food.oder.R
 import com.food.oder.app.AppConstants.ID_FOOD
 import com.food.oder.data.liveData.StateData
 import com.food.oder.data.model.Cart
+import com.food.oder.data.model.MealRanDom
 import com.food.oder.databinding.ActivityDetailsBinding
 import com.food.oder.ui.bases.BaseActivity
 import com.food.oder.ui.component.activity.details.viewModel.DetailsViewModel
+import com.food.oder.ui.component.dialog.ControlAddCartDialog
 import com.food.oder.utils.convertPrice
 import com.food.oder.utils.loadImage
 import com.food.oder.utils.tap
@@ -24,8 +26,7 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
     private val detailsViewModel: DetailsViewModel by viewModels()
 
     private var isAddCart = false
-
-    private var amount = 1
+    private var food : MealRanDom? = null
 
     private var urlImage = ""
     private var nameFood = ""
@@ -47,10 +48,6 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
         } else {
             mBinding.btnAddToCart.background = getDrawable(R.drawable.bg_add_to_cart)
         }
-
-        if (amount == 1) {
-            mBinding.btnMinus.visibility = View.GONE
-        }
     }
 
     override fun onClickViews() {
@@ -63,45 +60,24 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
         mBinding.btnAddToCart.tap {
             if (!isAddCart) {
                 mBinding.btnAddToCart.background = getDrawable(R.drawable.bg_gray_shape_corner_6)
-                mBinding.layoutControl.visibility = View.VISIBLE
+                val dialog = food?.let { it1 -> ControlAddCartDialog(this, it1, onclickAddCart = { amount ->
+                    detailsViewModel.insertOrUpdateData(
+                        Cart(
+                            urlImage = urlImage,
+                            name = nameFood,
+                            amount = amount,
+                            price = price
+                        )
+                    )
+
+                    Toast.makeText(this, getString(R.string.add_cart_success), Toast.LENGTH_SHORT).show()
+                }, onclickCancelCart = {
+                    isAddCart = false
+                    mBinding.btnAddToCart.background = getDrawable(R.drawable.bg_add_to_cart)
+                }) }
+
+                dialog?.show()
             }
-        }
-
-        mBinding.tvCancel.tap {
-            isAddCart = false
-            amount = 1
-            mBinding.btnAddToCart.background = getDrawable(R.drawable.bg_add_to_cart)
-            mBinding.layoutControl.visibility = View.GONE
-        }
-
-        mBinding.btnMinus.tap {
-            amount--
-            if (amount == 1) {
-                mBinding.btnMinus.visibility = View.GONE
-            }
-            mBinding.tvAmout.text = amount.toString()
-        }
-
-        mBinding.btnPlus.tap {
-            amount++
-            mBinding.tvAmout.text = amount.toString()
-            mBinding.btnMinus.visibility = View.VISIBLE
-        }
-
-        mBinding.tvAdd.tap {
-            //AddCart
-            detailsViewModel.insertOrUpdateData(
-                Cart(
-                    urlImage = urlImage,
-                    name = nameFood,
-                    amount = amount,
-                    price = price
-                )
-            )
-
-            mBinding.layoutControl.visibility = View.GONE
-
-            Toast.makeText(this, getString(R.string.add_cart_success), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -120,20 +96,16 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding>() {
                             mBinding.pressed.visibility = View.GONE
                             mBinding.btnAddToCart.visibility = View.VISIBLE
 
+
                             food.meals?.get(0)?.apply {
+                               this@DetailsActivity.food = this
+
                                 loadImage(
                                     mBinding.imvFood, this.strMealThumb
                                 )
                                 mBinding.tvName.text = this.strMeal
                                 mBinding.tvPrice.text = "${convertPrice(this.idMeal.toString())} $"
                                 mBinding.tvDetails.text = this.strInstructions
-
-                                loadImage(
-                                    mBinding.imvFoodAddCart, this.strMealThumb
-                                )
-
-                                mBinding.tvFoodNameCart.text = this.strMeal
-                                mBinding.tvPriceAddCart.text = "${convertPrice(this.idMeal.toString())} $"
 
                                 urlImage = this.strMealThumb.toString()
                                 nameFood = this.strMeal.toString()

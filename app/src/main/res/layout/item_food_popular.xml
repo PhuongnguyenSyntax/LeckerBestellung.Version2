@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <RelativeLayout
         android:id="@+id/layout_item"
@@ -9,37 +8,35 @@
         android:layout_marginEnd="@dimen/define_dimen_20">
 
         <ProgressBar
-            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
 
-        <com.food.oder.widget.AspectRatioNoRadiusImageView
+        <ImageView
             android:id="@+id/image_food"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            app:aspectRatioEnabled="true"
-            app:dominantMeasurement="Width"
-            android:layout_marginBottom="10dp"/>
+            android:layout_height="150dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
+            android:layout_below="@id/image_food"
             android:gravity="center"
-            android:textStyle="bold"
-            android:layout_below="@id/image_food"/>
+            android:text="@string/app_name"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
             android:layout_below="@id/tv_title"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/colorPrimaryDark" />
 
     </RelativeLayout>
 </layout>

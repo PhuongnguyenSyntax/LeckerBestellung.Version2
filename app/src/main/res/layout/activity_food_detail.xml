@@ -57,7 +57,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.food.oder.widget.AspectRatioNoRadiusImageView
+                    <ImageView
                         android:id="@+id/image_food"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

@@ -49,9 +49,14 @@ class FeedBackFragment : BaseFragment<FragmentFeedbackBinding>() {
                         feedBack = mBinding.edtComment.text.trim().toString()
                     )
                 ).addOnSuccessListener {
+
+                    mBinding.edtName.setText("")
+                    mBinding.edtPhone.setText("")
+                    mBinding.edtEmail.setText("")
+                    mBinding.edtComment.setText("")
                     Toast.makeText(
                         requireContext(),
-                        getString(R.string.msg_order_success),
+                        getString(R.string.send_feedback_success),
                         Toast.LENGTH_SHORT
                     ).show()
                 }.addOnFailureListener {

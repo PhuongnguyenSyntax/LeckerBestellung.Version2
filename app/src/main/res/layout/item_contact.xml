@@ -19,8 +19,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_contact"
                 android:layout_width="@dimen/define_dimen_40"
-                android:layout_height="@dimen/define_dimen_40"
-              />
+                android:layout_height="@dimen/define_dimen_40" />
 
             <TextView
                 android:id="@+id/tv_contact"

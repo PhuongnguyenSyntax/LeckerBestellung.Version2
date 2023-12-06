@@ -82,6 +82,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             timer = Timer()
             timer!!.schedule(object : TimerTask() {
                 override fun run() {
+                    
                     Handler(Looper.getMainLooper()).post {
                         var currencyAd: Int = mBinding.viewpager2.currentItem
                         val positionAd: Int = listImageRanDomFood.size - 1

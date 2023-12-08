@@ -29,7 +29,7 @@ class HistoryAdapter(
             binding.tvDate.text = item.date
             binding.tvName.text = item.fullName
             binding.tvPhone.text = item.numberPhone
-            binding.tvTotalAmount.text = "${convertPrice(item.totalAmount.toString())} $"
+            binding.tvTotalAmount.text = "${convertPrice(item.totalAmount.toString())} €"
             binding.tvMenu.text = item.menu.toString().replace("[", "").replace("]", "")
         }
     }

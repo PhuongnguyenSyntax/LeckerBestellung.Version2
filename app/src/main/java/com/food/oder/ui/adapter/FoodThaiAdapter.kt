@@ -27,7 +27,7 @@ class FoodThaiAdapter(
         if (binding is ItemFoodPopularBinding) {
             loadImage(binding.imageFood, item.strMealThumb)
             binding.tvTitle.text = item.strMeal
-            binding.tvPrice.text = "${convertPrice(item.idMeal)} $"
+            binding.tvPrice.text = "${convertPrice(item.idMeal)} €"
         }
     }
 
